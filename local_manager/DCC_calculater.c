@@ -1,7 +1,7 @@
 #define _CRT_OBSOLETE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-
+//CPU utilization is calculated with /proc/stat
 long long int total_tick_old = 0.0;
 long long int idle_old = 0.0;
 
@@ -61,11 +61,13 @@ double util(int Num){
 int main(){
 	double percent_total_usage;
 	double ambient = 0.0;
+	// Use your maximum frequency of the CPU
 	double max_freq = 4.7;
 	double DCC = 0.0;
 	double a, b, c;
 	FILE *fo, *amb;
 
+	// if your CPUs are not equal to my configuration, it needs to recalculate.
 	a = -0.55;
 	b = 22.3;
 	c = -60.77;
@@ -73,6 +75,7 @@ int main(){
 	while (1){
 		percent_total_usage = util(-1);
 	        fo = fopen("DCC_calculated", "w");
+		// Use your Ambient temperature file
 	        amb = fopen("/home/server13/Desktop/Ambient_Temperature", "r");
 	        fscanf(amb, "%f", &ambient);
 		DCC = a * ambient;
