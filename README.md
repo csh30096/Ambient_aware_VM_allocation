@@ -15,8 +15,11 @@ Ambient-aware VM allocation technique for virtualized heterogeneous data center
 
 ## How to use
 1. Set the one physical machine to global manager
-2. Setting the information of the VMs and PMs.
-2. (In global manager machine) python global_allocator.py
+2. Set at least one pysical machine to local manager
+3. Setting the information of the VMs and PMs.
+4. (In global manager machine) python global_allocator.py
+5. (In local manager machine(s)) gcc DCC_calculater.c -o DCC_calculater
+6. (In local manager machine(s)) ./DCC_calculater
 
 ## Dependencies
 - Python 3.7
